@@ -12,9 +12,9 @@ export default function Phonebook() {
     <ul className={s.list}>
       {isFetching && <p>Загружаем...</p>}
       {data &&
-        contactsFiltered(data, filter).map(({ id, name, phone }) => (
+        contactsFiltered(data, filter).map(({ id, name, number }) => (
           <li className={s.item} key={id}>
-            <PhonebookItem name={name} number={phone} id={id} />
+            <PhonebookItem name={name} number={number} id={id} />
           </li>
         ))}
     </ul>

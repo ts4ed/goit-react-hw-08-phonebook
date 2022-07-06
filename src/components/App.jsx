@@ -1,18 +1,78 @@
-import ContactForm from './ContactForm/ContactForm';
-import { ToastContainer } from 'react-toastify';
-import Phonebook from './Phonebook/Phonebook';
-import Filter from './Filter/Filter';
-import s from './App.module.css';
+import { lazy, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import PrivateRoute from './PrivateRoute';
+import PublicRoute from './PublicRoute';
+import { useDispatch, useSelector } from 'react-redux';
+import { authOperations, authSelectors } from '../redux/auth';
+import Layout from './Layout';
+// import { Loading } from './Loading/Loading';
+const HomePage = lazy(() =>
+  import('../pages/HomePage' /* webpackChunkName: "home-page" */)
+);
+const ContactsPage = lazy(() =>
+  import('../pages/ContactsPage' /* webpackChunkName: "contacts-page" */)
+);
+const LoginPage = lazy(() =>
+  import('../pages/LoginPage' /* webpackChunkName: "login-page" */)
+);
+const RegisterPage = lazy(() =>
+  import('../pages/RegisterPage' /* webpackChunkName: "register-page" */)
+);
 
-export default function App() {
+export const App = () => {
+  const dispatch = useDispatch();
+  const isFetchingCurrentUser = useSelector(authSelectors.getIsFetchingCurrent);
+
+  useEffect(() => {
+    dispatch(authOperations.fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <div className={s.container}>
-      <h1 className={s.title}>Phonebook</h1>
-      <ContactForm />
-      <h2 className={s.title}>Contacts</h2>
-      <Filter />
-      <Phonebook />
-      <ToastContainer />
-    </div>
+    <Routes>
+      {!isFetchingCurrentUser && (
+        <Route path="/" element={<Layout />}>
+          <Route
+            index
+            element={
+              <PublicRoute>
+                <HomePage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="contacts"
+            element={
+              <PrivateRoute redirectTo="/login">
+                <ContactsPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute redirectTo="/contacts" restricted>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="register"
+            element={
+              <PublicRoute>
+                <RegisterPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <PublicRoute>
+                <HomePage />
+              </PublicRoute>
+            }
+          />
+        </Route>
+      )}
+    </Routes>
   );
-}
+};
