@@ -4,8 +4,7 @@ import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../redux/auth';
-import Layout from './Layout';
-// import { Loading } from './Loading/Loading';
+import Layout from './Layout/Layout';
 const HomePage = lazy(() =>
   import('../pages/HomePage' /* webpackChunkName: "home-page" */)
 );
@@ -58,7 +57,7 @@ export const App = () => {
           <Route
             path="register"
             element={
-              <PublicRoute>
+              <PublicRoute restricted>
                 <RegisterPage />
               </PublicRoute>
             }

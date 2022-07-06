@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
-import NavLinks from './AppBar/AppBar';
+import NavLinks from '../AppBar/AppBar';
 function Layout() {
   return (
     <div>

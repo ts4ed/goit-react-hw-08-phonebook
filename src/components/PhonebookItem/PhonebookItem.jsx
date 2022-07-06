@@ -1,20 +1,23 @@
-import s from './PhonebookItem.module.css';
+// import s from './PhonebookItem.module.css';
 import PropTypes from 'prop-types';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
-
+import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
 export default function PhonebookItem({ id, name, number }) {
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
   return (
     <>
       {name} : {number}
-      <button
-        className={s.button}
+      <Button
+        variant="outlined"
+        size="small"
         type="button"
         onClick={() => deleteContact(id)}
         disabled={isDeleting}
       >
         {isDeleting ? 'Deleting....' : 'Delete'}
-      </button>
+        <DeleteIcon />
+      </Button>
       {/* <button className={s.button} type="button">
         Сhange
       </button> */}

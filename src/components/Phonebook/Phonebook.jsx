@@ -1,4 +1,3 @@
-import s from './Phonebook.module.css';
 import PhonebookItem from 'components/PhonebookItem/PhonebookItem';
 import { useSelector } from 'react-redux';
 import { getFilter, contactsFiltered } from 'redux/contactsSlice/contactsSlice';
@@ -9,11 +8,11 @@ export default function Phonebook() {
 
   const filter = useSelector(getFilter);
   return (
-    <ul className={s.list}>
+    <ul>
       {isFetching && <p>Загружаем...</p>}
       {data &&
         contactsFiltered(data, filter).map(({ id, name, number }) => (
-          <li className={s.item} key={id}>
+          <li key={id}>
             <PhonebookItem name={name} number={number} id={id} />
           </li>
         ))}
