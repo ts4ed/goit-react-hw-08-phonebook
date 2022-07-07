@@ -1,6 +1,5 @@
 import { useCreateContactMutation } from 'redux/contacts/contactsApi';
 import { useFetchContactsQuery } from 'redux/contacts/contactsApi';
-import { useForm } from 'react-hook-form';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 import { Form, Button } from './ContactForm.styled';
