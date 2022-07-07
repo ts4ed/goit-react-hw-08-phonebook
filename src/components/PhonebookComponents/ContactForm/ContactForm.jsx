@@ -1,6 +1,6 @@
 import { useCreateContactMutation } from 'redux/contacts/contactsApi';
 import { useFetchContactsQuery } from 'redux/contacts/contactsApi';
-// import Button from '@mui/material/Button';
+import { useForm } from 'react-hook-form';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
 import { Form, Button } from './ContactForm.styled';
@@ -17,7 +17,6 @@ export default function ContactForm() {
   const handleSubmit = async e => {
     e.preventDefault();
     const newContact = { name, number };
-    // console.log(data);
     const isExistContact = data.find(
       dat => dat.name.toLowerCase() === name.toLowerCase()
     );
@@ -27,7 +26,6 @@ export default function ContactForm() {
     if (!isExistContact) {
       try {
         await createContact(newContact);
-        // toast.success(`${name} add in contacts`);
       } catch (error) {}
     }
 

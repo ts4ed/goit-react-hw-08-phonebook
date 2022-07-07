@@ -6,4 +6,6 @@ export const Header = styled.header`
   height: 60px;
   align-items: center;
   justify-content: space-around;
+  position: absolute;
+  width: 100%;
 `;

@@ -4,7 +4,7 @@ import bghome from '../Images/bghome.jpg';
 export const Main = styled.main`
   display: flex;
   justify-content: center;
-  max-height: calc(100vh - 135px);
+  height: calc(100vh - 50px);
   background: linear-gradient(
       335deg,
       rgba(0, 0, 0, 0.5) 0%,
@@ -15,5 +15,5 @@ export const Main = styled.main`
   background-position: center;
   background-attachment: fixed;
   color: #fff;
-  padding-bottom: 25px;
+  padding-top: 50px;
 `;

@@ -5,6 +5,9 @@ export const Container = styled.footer`
   height: 50px;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
 `;
 
 export const Link = styled.a`
