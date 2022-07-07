@@ -6,16 +6,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { authOperations, authSelectors } from '../redux/auth';
 import Layout from './Layout/Layout';
 const HomePage = lazy(() =>
-  import('../pages/HomePage' /* webpackChunkName: "home-page" */)
+  import('../pages/HomePage/HomePage' /* webpackChunkName: "home-page" */)
 );
 const ContactsPage = lazy(() =>
-  import('../pages/ContactsPage' /* webpackChunkName: "contacts-page" */)
+  import(
+    '../pages/ContactsPage/ContactsPage' /* webpackChunkName: "contacts-page" */
+  )
 );
 const LoginPage = lazy(() =>
-  import('../pages/LoginPage' /* webpackChunkName: "login-page" */)
+  import('../pages/LoginPage/LoginPage' /* webpackChunkName: "login-page" */)
 );
 const RegisterPage = lazy(() =>
-  import('../pages/RegisterPage' /* webpackChunkName: "register-page" */)
+  import(
+    '../pages/RegisterPage/RegisterPage' /* webpackChunkName: "register-page" */
+  )
 );
 
 export const App = () => {

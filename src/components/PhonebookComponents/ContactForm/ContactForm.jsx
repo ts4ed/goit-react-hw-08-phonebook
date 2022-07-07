@@ -1,8 +1,9 @@
 import { useCreateContactMutation } from 'redux/contacts/contactsApi';
 import { useFetchContactsQuery } from 'redux/contacts/contactsApi';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import AddIcon from '@mui/icons-material/Add';
 import TextField from '@mui/material/TextField';
+import { Form, Button } from './ContactForm.styled';
 
 import useLocalStorage from 'hooks/useLocalStorage';
 import 'react-toastify/dist/ReactToastify.css';
@@ -39,13 +40,14 @@ export default function ContactForm() {
 
   return (
     <div>
-      <form type="submit" onSubmit={handleSubmit}>
+      <Form type="submit" onSubmit={handleSubmit}>
         <TextField
           id="standard-basic"
           label="Name"
           variant="standard"
           value={name}
           size="small"
+          color="grey"
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -60,6 +62,7 @@ export default function ContactForm() {
           value={number}
           size="small"
           type="tel"
+          color="grey"
           name="number"
           pattern="(\+?( |-|\.)?\d{1,2}( |-|\.)?)?(\(?\d{3}\)?|\d{3})( |-|\.)?(\d{3}( |-|\.)?\d{4})"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
@@ -67,16 +70,11 @@ export default function ContactForm() {
           onChange={e => setNumber(e.target.value)}
         />
 
-        <Button
-          variant="outlined"
-          size="small"
-          type="submit"
-          disabled={!name || !number || isCreating}
-        >
-          {isCreating ? 'Сreate a contact....' : 'Add contact'}
+        <Button type="submit" disabled={!name || !number || isCreating}>
+          {isCreating ? 'Сreate a contact..' : 'Add contact'}
           <AddIcon />
         </Button>
-      </form>
+      </Form>
     </div>
   );
 }
