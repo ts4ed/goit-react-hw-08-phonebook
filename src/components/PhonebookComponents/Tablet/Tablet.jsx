@@ -21,11 +21,11 @@ export default function DataTable() {
       field: 'name',
       headerName: 'Name',
       sortable: true,
-      width: 160,
+      width: 150,
       valueGetter: (params: GridValueGetterParams) =>
         `${params.row.name || ''}`,
     },
-    { field: 'number', headerName: 'Number', width: 160, sortable: true },
+    { field: 'number', headerName: 'Number', width: 150, sortable: true },
     {
       field: 'actions',
       type: 'actions',
