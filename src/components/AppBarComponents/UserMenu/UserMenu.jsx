@@ -12,9 +12,6 @@ export default function UserMenu() {
   if (screenWidth < 620) {
     isDesktop.current = false;
   }
-  console.log(screenWidth);
-  console.log(isDesktop);
-
   return (
     <UserContainer>
       <UserName style={{ color: '#fff' }}>
