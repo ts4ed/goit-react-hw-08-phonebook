@@ -29,7 +29,7 @@ export default function DataTable() {
     {
       field: 'actions',
       type: 'actions',
-      width: 80,
+      width: 50,
       getActions: params => [
         <GridActionsCellItem
           icon={<DeleteIcon />}
@@ -54,6 +54,7 @@ export default function DataTable() {
             boxShadow: 2,
             fontSize: 17,
             border: 2,
+            width: 370,
             opacity: 1,
             background: 'rgba(134, 134, 135, 0.6)',
             borderColor: 'black',

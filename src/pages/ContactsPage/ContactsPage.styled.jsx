@@ -8,8 +8,8 @@ export const Wrapper = styled.div`
   min-height: calc(100vh - 100px);
   align-items: center;
   justify-content: center;
-  width: 410px;
-  height: 600px;
+  max-width: 410px;
+  max-height: 500px;
 `;
 
 export const Text = styled.h2`

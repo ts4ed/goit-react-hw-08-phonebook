@@ -31,7 +31,7 @@ export const Button = styled.button`
   -webkit-user-select: none;
   user-select: none;
   border: 1px solid transparent;
-  padding: 2px 4px;
+  padding: 2px;
   font-size: 1rem;
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
