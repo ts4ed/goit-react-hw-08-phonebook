@@ -21,6 +21,11 @@ const RegisterPage = lazy(() =>
     '../pages/RegisterPage/RegisterPage' /* webpackChunkName: "register-page" */
   )
 );
+const NoFoundPage = lazy(() =>
+  import(
+    '../pages/NoFoundPage/NoFoundPage' /* webpackChunkName: "nofound-page" */
+  )
+);
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -61,7 +66,7 @@ export const App = () => {
           <Route
             path="register"
             element={
-              <PublicRoute restricted>
+              <PublicRoute redirectTo="/contacts" restricted>
                 <RegisterPage />
               </PublicRoute>
             }
@@ -69,8 +74,8 @@ export const App = () => {
           <Route
             path="*"
             element={
-              <PublicRoute>
-                <HomePage />
+              <PublicRoute redirectTo="/" restricted>
+                <NoFoundPage />
               </PublicRoute>
             }
           />

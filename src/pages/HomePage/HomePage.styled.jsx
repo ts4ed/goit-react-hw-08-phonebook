@@ -17,7 +17,7 @@ export const TextTyped = styled.p`
   text-align: center;
 `;
 
-export const Title = styled.h1`
+export const Title = styled.h2`
   text-align: center;
   color: white;
 `;
