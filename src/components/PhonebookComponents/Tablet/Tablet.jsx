@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {
   DataGrid,
-  GridColDef,
   GridValueGetterParams,
   GridActionsCellItem,
 } from '@mui/x-data-grid';
@@ -11,12 +10,14 @@ import { useSelector } from 'react-redux';
 import { useDeleteContactMutation } from 'redux/contacts/contactsApi';
 import { getFilter, contactsFiltered } from 'redux/contactsSlice/contactsSlice';
 
+// import authSlice from 'redux/auth/auth-slice';
+
 export default function DataTable() {
   const { data } = useFetchContactsQuery();
   const [deleteContact, { isLoading: isDeleting }] = useDeleteContactMutation();
   const filter = useSelector(getFilter);
 
-  const columns: GridColDef[] = [
+  const columns = [
     {
       field: 'name',
       headerName: 'Name',

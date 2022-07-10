@@ -9,6 +9,13 @@ export default function UserMenu() {
   const name = useSelector(authSelectors.getUsername);
   const screenWidth = window.screen.width;
   const isDesktop = useRef(true);
+
+  const logoutCab = () => {
+    dispatch(authOperations.logOut());
+    window.setTimeout(function () {
+      document.location.reload();
+    }, 500);
+  };
   if (screenWidth < 620) {
     isDesktop.current = false;
   }
@@ -17,7 +24,7 @@ export default function UserMenu() {
       <UserName style={{ color: '#fff' }}>
         {isDesktop.current ? `Welcome, ${name}` : ''}
       </UserName>
-      <Button onClick={() => dispatch(authOperations.logOut())} type="button">
+      <Button onClick={logoutCab} type="button">
         <Text>Logout</Text>
         <LogoutIcon />
       </Button>

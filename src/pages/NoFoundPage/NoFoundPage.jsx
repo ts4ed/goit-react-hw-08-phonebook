@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 export default function NoFoundPage() {
   const navigate = useNavigate();
   useEffect(() => {
-    navigate('/');
+    navigate('/home');
   }, [navigate]);
   return (
     <div>

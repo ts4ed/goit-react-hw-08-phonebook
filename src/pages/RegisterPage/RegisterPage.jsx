@@ -27,7 +27,6 @@ export default function RegisterPage() {
   const handleSubmit = async e => {
     e.preventDefault();
     dispatch(authOperations.register({ name, email, password }));
-
     reset();
   };
 

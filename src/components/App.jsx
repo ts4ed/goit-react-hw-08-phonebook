@@ -40,7 +40,7 @@ export const App = () => {
       {!isFetchingCurrentUser && (
         <Route path="/" element={<Layout />}>
           <Route
-            index
+            path="/home"
             element={
               <PublicRoute>
                 <HomePage />
@@ -74,7 +74,7 @@ export const App = () => {
           <Route
             path="*"
             element={
-              <PublicRoute redirectTo="/" restricted>
+              <PublicRoute redirectTo="/contacts" restricted>
                 <NoFoundPage />
               </PublicRoute>
             }

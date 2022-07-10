@@ -28,12 +28,13 @@ export const Button = styled.button`
   text-decoration: none;
   vertical-align: middle;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.34);
+  background-color: ${props =>
+    props.disabled ? 'rgba(134, 134, 135, 0.6)' : 'rgba(0, 0, 0, 0.34)'};
   border-color: #6c757d;
-  cursor: ${props => (props.disabled ? 'none' : 'pointer')};
+  cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
-  border: 1px solid transparent;
+  border: 1px solid #565e64;
   margin-top: 15px;
   padding: 0.2rem 0.5rem;
   font-size: 1rem;
@@ -45,21 +46,18 @@ export const Button = styled.button`
   }
   &:hover {
     color: #fff;
-    background-color: ${props =>
-      props.disabled ? 'rgba(0, 0, 0, 0.34)' : 'rgba(134, 134, 135, 0.6)'};
+    background-color: rgba(134, 134, 135, 0.6);
     border-color: #565e64;
   }
   &:focus {
     color: #fff;
-    background-color: ${props =>
-      props.disabled ? 'rgba(0, 0, 0, 0.34)' : 'rgba(134, 134, 135, 0.6)'};
+    background-color: rgba(134, 134, 135, 0.6);
     border-color: #565e64;
     box-shadow: 0 0 0 0.25rem rgb(130 138 145 / 50%);
   }
   &:active {
     color: #fff;
-    background-color: ${props =>
-      props.disabled ? 'rgba(0, 0, 0, 0.34)' : 'rgba(134, 134, 135, 0.6)'};
+    background-color: rgba(134, 134, 135, 0.6);
     border-color: #51585e;
   }
 `;
