@@ -6,7 +6,9 @@ import { UserContainer, Button, UserName, Text } from './UserMenu.styled';
 
 export default function UserMenu() {
   const dispatch = useDispatch();
-  const name = useSelector(authSelectors.getUsername);
+  const name = useSelector(
+    authSelectors.getUsername ? authSelectors.getUsername : ''
+  );
   const screenWidth = window.screen.width;
   const isDesktop = useRef(true);
 
