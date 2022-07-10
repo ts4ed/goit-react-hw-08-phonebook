@@ -13,7 +13,6 @@ export default function UserMenu() {
   const logoutCab = () => {
     dispatch(authOperations.logOut());
     window.setTimeout(function () {
-      document.location.reload();
     }, 500);
   };
   if (screenWidth < 620) {

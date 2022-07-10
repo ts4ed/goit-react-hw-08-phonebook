@@ -18,6 +18,7 @@ export const contactsApi = createApi({
     fetchContacts: builder.query({
       query: () => `/contacts`,
       providesTags: ['Contact'],
+      keepUnusedDataFor: 5,
     }),
     createContact: builder.mutation({
       query: newContact => ({
