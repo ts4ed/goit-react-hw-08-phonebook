@@ -40,7 +40,7 @@ export const App = () => {
       {!isFetchingCurrentUser && (
         <Route path="/" element={<Layout />}>
           <Route
-            path="/home"
+            path="/"
             element={
               <PublicRoute>
                 <HomePage />

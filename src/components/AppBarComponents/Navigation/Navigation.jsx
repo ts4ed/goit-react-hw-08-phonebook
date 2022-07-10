@@ -14,10 +14,10 @@ function Navigation() {
   }
   return (
     <Container>
-      <Text as={Link} to="/home">
+      <Text as={Link} to="/">
         {isDesktop.current ? `Contactbook` : ''}
       </Text>
-      <Button as={Link} to="/home">
+      <Button as={Link} to="/">
         Home
       </Button>
       {isLoggedIn && (
