@@ -55,3 +55,9 @@ export const Button = styled.button`
 export const Text = styled.span`
   margin-right: 10px;
 `;
+
+export const P = styled.p`
+  font-size: 20px;
+  margin-right: 10px;
+  color: white;
+`;

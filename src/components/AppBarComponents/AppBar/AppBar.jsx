@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 export default function NavLinks() {
   const isLoggedIn = useSelector(authSelectors.getIsLoggedIn);
+
   return (
     <motion.div
       initial={{ y: -50, opacity: 0 }}
