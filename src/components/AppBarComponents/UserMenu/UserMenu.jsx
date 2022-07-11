@@ -12,7 +12,6 @@ export default function UserMenu() {
   const screenWidth = window.screen.width;
   const isDesktop = useRef(true);
   const isCurrentUser = useSelector(authSelectors.getName);
-  console.log(isCurrentUser.user.name);
 
   const logoutCab = () => {
     dispatch(authOperations.logOut());
